@@ -1,6 +1,6 @@
 {
-  "name": "test",
-  "version": "0.0.0",
+  "name": "vue3-ts",
+  "version": "0.0.1",
   "scripts": {
     "preinstall": "npm config set registry https://registry.npmmirror.com",
     "dev": "vite",
