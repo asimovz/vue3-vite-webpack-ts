@@ -1,31 +1,11 @@
 import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
-import App from './App.vue'
 import * as Sentry from '@sentry/vue'
 import { Integrations } from '@sentry/tracing'
+import router from './router'
+import App from './App.vue'
 import '@/assets/css/main.less'
 
 const app = createApp(App)
-
-import Home from './demo/Home.vue'
-const routes = [
-  { path: '/', component: Home },
-  {
-    name: 'Hello',
-    path: '/hello/:msg',
-    component: () => import(/* webpackChunkName: "hello" */ './demo/HelloWorld.vue'),
-    props: true,
-  },
-  {
-    path: '/third',
-    component: () => import(/* webpackChunkName: "third" */ './demo/third.vue'),
-  },
-]
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-})
 
 app.use(router)
 // Sentry.init({

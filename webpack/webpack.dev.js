@@ -21,15 +21,21 @@ const PublicVar = obj => {
 const plugins = [
   new CleanWebpackPlugin(),
   new VueLoaderPlugin(),
-  new webpack.DefinePlugin(PublicVar(envConfig)),
+  // new webpack.DefinePlugin(PublicVar(envConfig)),
+  new webpack.DefinePlugin({
+    'process.env': {
+      ...PublicVar(envConfig),
+    },
+    ...PublicVar(envConfig),
+  }),
   new HtmlWebpackPlugin({
     template: path.resolve(__dirname, '../index.html'),
   }),
   new CopyWebpackPlugin({
     patterns: [
       {
-        from: path.resolve(__dirname, '../public/images'),
-        to: 'images',
+        from: path.resolve(__dirname, '../public'),
+        to: '',
       },
     ],
   }),
@@ -78,6 +84,7 @@ module.exports = {
   mode: 'development',
   entry: path.resolve(__dirname, '../src/main.ts'),
   output: {
+    publicPath: envConfig['VITE_STATIC_URL'],
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].[contenthash:8].js',
   },
@@ -87,9 +94,13 @@ module.exports = {
       '@': path.resolve(__dirname, '../src'),
       assets: path.resolve(__dirname, '../src/assets'),
     },
+    extensions: ['.tsx', '.ts', '.js', '.json'],
   },
   module: {
     rules: rules,
   },
   plugins: plugins,
+  devServer: {
+    port: 3000,
+  },
 }

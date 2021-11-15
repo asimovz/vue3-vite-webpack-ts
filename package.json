@@ -5,15 +5,17 @@
     "preinstall": "npm config set registry https://registry.npmmirror.com",
     "dev": "vite",
     "uat": "vite --mode uat",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
+    "build1": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "webpack:dev": "cross-env mode=development webpack server --config webpack/webpack.dev.js",
     "webpack:uat": "cross-env mode=uat webpack server --config webpack/webpack.dev.js",
-    "webpack:build": "webpack --config webpack/webpack.dev.js"
+    "webpack:build": "cross-env mode=production webpack --config webpack/webpack.dev.js"
   },
   "dependencies": {
     "@sentry/tracing": "^6.13.3",
     "@sentry/vue": "^6.13.3",
+    "axios": "^0.24.0",
     "vue": "^3.2.16",
     "vue-router": "^4.0.12"
   },
