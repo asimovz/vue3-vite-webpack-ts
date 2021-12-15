@@ -5,10 +5,10 @@
 
 <script lang="tsx">
 import { defineComponent, ref, onMounted, defineAsyncComponent } from 'vue'
-import Deatil from '@/demo/detail.vue'
+import Deatil from '@/views/demo/detail.vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
-import routerModules from '../router/module'
+import routerModules from '@/router/module'
 
 export default defineComponent({
   name: 'Home',

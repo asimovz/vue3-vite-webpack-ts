@@ -3,7 +3,7 @@ import * as Sentry from '@sentry/vue'
 import { Integrations } from '@sentry/tracing'
 import router from './router'
 import App from './App.vue'
-import '@/assets/css/main.less'
+import '@/assets/css/index.less'
 
 const app = createApp(App)
 

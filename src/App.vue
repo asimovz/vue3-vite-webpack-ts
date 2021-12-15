@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
-import HelloWorld from '@/demo/HelloWorld.vue'
+import HelloWorld from '@/views/demo/HelloWorld.vue'
 interface HELLO extends HTMLHtmlElement {
   demo: Function
 }
@@ -17,7 +17,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <img alt="Vue logo" src="@/assets/logo.png" @click="imgClick" />
+  <img alt="Vue logo" src="@/assets/images/logo.png" @click="imgClick" />
 
   <router-link to="/">Go to Home111</router-link>
   |
@@ -28,6 +28,7 @@ onMounted(() => {
   <router-link to="/dynamic">Go to dynamic</router-link>
 
   <router-view />
+
   <!-- <HelloWorld ref="helloworld" msg="Hello Vue 3 + TypeScript + Vite" /> -->
 </template>
 
