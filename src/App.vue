@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-
+import { ref, onMounted, reactive, watch } from 'vue'
+import RichText from '@/components/RichText'
 import HelloWorld from '@/views/demo/HelloWorld.vue'
-interface HELLO extends HTMLHtmlElement {
+interface HELLO {
   demo: Function
 }
 
@@ -12,11 +12,13 @@ const imgClick = (evt: Event) => {
 }
 
 onMounted(() => {
-  helloworld.value && helloworld.value.demo('42342424')
+  // helloworld.value && helloworld.value.demo('42342424')
 })
 </script>
 
 <template>
+  <rich-text />
+
   <img alt="Vue logo" src="@/assets/images/logo.png" @click="imgClick" />
 
   <router-link to="/">Go to Home111</router-link>
@@ -40,7 +42,7 @@ onMounted(() => {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  background-color: var(--bcat-input-bg);
+  /* background-color: var(--bcat-input-bg); */
   /* background-image: url("assets/logo.png"); */
 }
 </style>
